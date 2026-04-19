@@ -11,6 +11,11 @@ mod theme;
 mod views;
 mod icons;
 
+pub const APP_TITLE: &str = "Habit Flow";
+pub const APP_VERSION: &str = env!("CARGO_PKG_VERSION");
+pub const APP_DATA_DIR_NAME: &str = "HabitFlow";
+pub const APP_BACKUP_PREFIX: &str = "habit-flow-backup";
+
 use chrono::NaiveDate;
 use iced::widget::{container, opaque, stack, text, text_input};
 use iced::{Font, Length, Size, Subscription, Task};
@@ -25,7 +30,7 @@ use crate::theme::{AppTheme, BannerKind, ThemePreset};
 
 fn main() -> iced::Result {
     iced::application(
-        "Minimal Habit Tracker",
+        APP_TITLE,
         HabitTracker::update,
         HabitTracker::view,
     )
@@ -400,10 +405,10 @@ impl HabitTracker {
             Message::RequestExport => {
                 if let Some(db) = &self.db {
                     if let Some(path) = FileDialog::new()
-                        .set_title("Export Minimal Habit Tracker data")
+                        .set_title("Export Habit Flow data")
                         .add_filter("JSON", &["json"])
                         .set_file_name(&format!(
-                            "habit-tracker-backup-{}.json",
+                            "{APP_BACKUP_PREFIX}-{}.json",
                             self.today.format("%Y-%m-%d")
                         ))
                         .save_file()
@@ -432,7 +437,7 @@ impl HabitTracker {
             }
             Message::RequestImport => {
                 if let Some(path) = FileDialog::new()
-                    .set_title("Import Minimal Habit Tracker data")
+                    .set_title("Import Habit Flow data")
                     .add_filter("JSON", &["json"])
                     .pick_file()
                 {
@@ -522,7 +527,7 @@ impl HabitTracker {
                         .set_title("Backup before factory reset")
                         .add_filter("JSON", &["json"])
                         .set_file_name(&format!(
-                            "habit-tracker-backup-{}.json",
+                            "{APP_BACKUP_PREFIX}-{}.json",
                             self.today.format("%Y-%m-%d")
                         ))
                         .save_file()

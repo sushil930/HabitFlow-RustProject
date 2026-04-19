@@ -1484,6 +1484,22 @@ dependencies = [
 ]
 
 [[package]]
+name = "habit-flow"
+version = "0.1.0"
+dependencies = [
+ "chrono",
+ "dirs 5.0.1",
+ "iced",
+ "lucide-icons",
+ "rfd",
+ "rusqlite",
+ "serde",
+ "serde_json",
+ "uuid",
+ "winapi",
+]
+
+[[package]]
 name = "half"
 version = "2.7.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2301,22 +2317,6 @@ dependencies = [
  "log",
  "objc",
  "paste",
-]
-
-[[package]]
-name = "minimal-habit-tracker"
-version = "0.1.0"
-dependencies = [
- "chrono",
- "dirs 5.0.1",
- "iced",
- "lucide-icons",
- "rfd",
- "rusqlite",
- "serde",
- "serde_json",
- "uuid",
- "winapi",
 ]
 
 [[package]]

@@ -1,8 +1,8 @@
 [package]
-name = "minimal-habit-tracker"
+name = "habit-flow"
 version = "0.1.0"
 edition = "2021"
-description = "A minimal, offline-first desktop habit tracker"
+description = "A calm, offline-first desktop habit tracker"
 authors = ["sushi"]
 build = "build.rs"
 
@@ -28,7 +28,7 @@ codegen-units = 1
 winapi = { version = "0.3", features = ["winuser"] }
 
 [package.metadata.bundle]
-name = "Minimal Habit Tracker"
-identifier = "io.github.sushi.minimalhabittracker"
-short_description = "A minimal, offline-first desktop habit tracker"
-icon = ["assets/app_icon.png"]
+name = "Habit Flow"
+identifier = "io.github.sushi.habitflow"
+short_description = "A calm, offline-first desktop habit tracker"
+icon = ["assets/habit_logo.svg"]

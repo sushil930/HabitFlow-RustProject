@@ -3,21 +3,26 @@ use iced::{Alignment, Element, Length};
 
 use crate::icons;
 use crate::theme::{self, AppTheme};
-use crate::{Message, View};
+use crate::{Message, View, APP_TITLE};
 
 pub fn view<'a>(current_view: View, theme: &'a AppTheme) -> Element<'a, Message> {
     let sp = &theme.spacing;
     let ty = &theme.typography;
 
-    let brand = column![
-        text("Minimal Habit Tracker")
-            .size(ty.size_heading_md)
-            .color(theme.colors.text_primary),
-        text("Offline-first daily habits")
-            .size(ty.size_caption)
-            .color(theme.colors.text_secondary),
+    let brand = row![
+        container(icons::app_logo(48.0)).padding(4),
+        column![
+            text(APP_TITLE)
+                .size(ty.size_heading_md)
+                .color(theme.colors.text_primary),
+            text("Offline-first daily habits")
+                .size(ty.size_caption)
+                .color(theme.colors.text_secondary),
+        ]
+        .spacing(sp.xs),
     ]
-    .spacing(sp.xs);
+    .spacing(sp.md)
+    .align_y(Alignment::Center);
 
     let nav = column![
         nav_button("Today", View::Today, current_view, theme),

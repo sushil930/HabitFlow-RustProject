@@ -5,6 +5,7 @@ use std::path::{Path, PathBuf};
 use crate::lucide::{sanitize_icon_name, DEFAULT_ICON_NAME};
 use crate::models::{DailyLog, ExportData, Habit, HabitCategory, HabitWithStats};
 use crate::theme::ThemePreset;
+use crate::APP_DATA_DIR_NAME;
 
 pub struct Database {
     conn: Connection,
@@ -23,7 +24,7 @@ impl Database {
 
     pub fn database_path() -> PathBuf {
         let mut path = dirs::data_dir().unwrap_or_else(|| PathBuf::from("."));
-        path.push("MinimalHabitTracker");
+        path.push(APP_DATA_DIR_NAME);
         path.push("data.db");
         path
     }

@@ -1,4 +1,4 @@
-# Product Requirements Document: Minimal Habit Tracker
+# Product Requirements Document: Habit Flow
 
 **Version**: 1.0  
 **Date**: 2026-04-07  
@@ -9,7 +9,7 @@
 
 ## Executive Summary
 
-Minimal Habit Tracker is a desktop-first, offline-only application designed to help individuals track daily habits with zero friction. The core thesis is simple: existing habit trackers are bloated, slow, and distraction-heavy — they've become dopamine casinos rather than productivity tools. This product strips habit tracking down to its essence: add a habit, check it off, see your streak.
+Habit Flow is a desktop-first, offline-only application designed to help individuals track daily habits with zero friction. The core thesis is simple: existing habit trackers are bloated, slow, and distraction-heavy — they've become dopamine casinos rather than productivity tools. This product strips habit tracking down to its essence: add a habit, check it off, see your streak.
 
 The target audience is students, developers, and productivity-focused individuals who want a calm, fast, keyboard-friendly tool that stays out of their way. There are no social features, no cloud sync, no AI suggestions — just a clean interface that loads in under a second and does exactly one thing well.
 
@@ -192,7 +192,7 @@ Success is not measured by downloads or engagement metrics. It is measured by da
 ### Security
 - No network calls — ever. The app must function with no internet access
 - No account creation, email, or credentials
-- Local data stored in user's OS app data directory (e.g., `%APPDATA%\MinimalHabitTracker` on Windows)
+- Local data stored in user's OS app data directory (e.g., `%APPDATA%\HabitFlow` on Windows)
 - Export files are plaintext JSON — user is responsible for their security
 
 ### Integration

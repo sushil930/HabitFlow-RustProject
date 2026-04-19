@@ -1,6 +1,8 @@
 use iced::widget::svg::Handle;
 use iced::{Color, Element, Length};
 
+pub const APP_LOGO_BYTES: &[u8] = include_bytes!("../assets/habit_logo.svg");
+
 fn lucide_svg(filename: &str) -> &'static [u8] {
     match filename {
         "archive.svg" => include_bytes!("../assets/icons/archive.svg"),
@@ -27,6 +29,13 @@ pub fn icon<'a, Message>(filename: &str, color: Color, size: f32) -> Element<'a,
         .style(move |_, _| iced::widget::svg::Style {
             color: Some(color),
         })
+        .into()
+}
+
+pub fn app_logo<'a, Message>(size: f32) -> Element<'a, Message> {
+    iced::widget::svg(Handle::from_memory(APP_LOGO_BYTES))
+        .width(Length::Fixed(size))
+        .height(Length::Fixed(size))
         .into()
 }
 

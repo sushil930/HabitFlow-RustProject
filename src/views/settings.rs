@@ -3,7 +3,7 @@ use iced::{Alignment, Element, Length};
 
 use crate::icons;
 use crate::theme::{self, AppTheme, ThemePreset};
-use crate::{views, BannerMessage, Message};
+use crate::{views, BannerMessage, Message, APP_TITLE, APP_VERSION};
 
 pub fn view<'a>(
     banner: Option<BannerMessage>,
@@ -112,9 +112,20 @@ pub fn view<'a>(
             text("About")
                 .size(ty.size_heading_lg)
                 .color(theme.colors.text_primary),
-            text("Minimal Habit Tracker v0.1.0")
-                .size(ty.size_body_md)
-                .color(theme.colors.text_secondary),
+            row![
+                container(icons::app_logo(44.0)).padding(4),
+                column![
+                    text(APP_TITLE)
+                        .size(ty.size_heading_md)
+                        .color(theme.colors.text_primary),
+                    text(format!("v{APP_VERSION}"))
+                        .size(ty.size_body_md)
+                        .color(theme.colors.text_secondary),
+                ]
+                .spacing(sp.xs),
+            ]
+            .spacing(sp.md)
+            .align_y(Alignment::Center),
             text("Offline-first. No accounts. No cloud. Just habits.")
                 .size(ty.size_body_sm)
                 .color(theme.colors.text_tertiary),
