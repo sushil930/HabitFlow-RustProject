@@ -180,7 +180,7 @@ This project is open source. Please check the repository for license details.
 
 ## 👤 Author
 
-**sushi** — [@sushil930](https://github.com/sushil930)
+**sushil** — [@sushil930](https://github.com/sushil930)
 
 ---
 
