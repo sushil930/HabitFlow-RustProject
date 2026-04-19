@@ -1,0 +1,34 @@
+[package]
+name = "minimal-habit-tracker"
+version = "0.1.0"
+edition = "2021"
+description = "A minimal, offline-first desktop habit tracker"
+authors = ["sushi"]
+build = "build.rs"
+
+[dependencies]
+iced = { version = "0.13", features = ["canvas", "svg", "tokio", "image"] }
+lucide-icons = { version = "1.8", features = ["iced"] }
+rusqlite = { version = "0.31", features = ["bundled"] }
+uuid = { version = "1.0", features = ["v4"] }
+chrono = { version = "0.4", features = ["serde"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+dirs = "5.0"
+rfd = "0.14"
+
+[profile.release]
+lto = true
+strip = true
+opt-level = "s"
+codegen-units = 1
+
+# Hide console window on Windows release builds
+[target.'cfg(windows)'.dependencies]
+winapi = { version = "0.3", features = ["winuser"] }
+
+[package.metadata.bundle]
+name = "Minimal Habit Tracker"
+identifier = "io.github.sushi.minimalhabittracker"
+short_description = "A minimal, offline-first desktop habit tracker"
+icon = ["assets/app_icon.png"]
