@@ -3,7 +3,7 @@ name = "habit-flow"
 version = "0.1.1"
 edition = "2021"
 description = "A calm, offline-first desktop habit tracker"
-authors = ["sushi"]
+authors = ["sushil"]
 build = "build.rs"
 
 [dependencies]
