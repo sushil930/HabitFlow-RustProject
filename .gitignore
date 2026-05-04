@@ -9,3 +9,11 @@
 # OS files
 Thumbs.db
 .DS_Store
+
+# Data folder
+data/
+
+# Installer build artifacts
+wix314-binaries/
+*.zip
+*.msi

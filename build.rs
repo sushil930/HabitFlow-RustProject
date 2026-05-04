@@ -5,6 +5,13 @@ use std::path::{Path, PathBuf};
 
 fn main() {
     println!("cargo:rerun-if-changed=build.rs");
+    println!("cargo:rerun-if-changed=assets/app.rc");
+    println!("cargo:rerun-if-changed=assets/habit_logo.ico");
+
+    // Embed Windows application icon into the executable
+    if std::env::var("CARGO_CFG_TARGET_OS").unwrap_or_default() == "windows" {
+        embed_windows_icon();
+    }
 
     let source = find_lucide_source().unwrap_or_else(|| {
         panic!(
@@ -135,3 +142,15 @@ fn extract_icon_variants(contents: &str) -> Vec<String> {
     variants.dedup();
     variants
 }
+
+#[cfg(target_os = "windows")]
+fn embed_windows_icon() {
+    let mut res = winresource::WindowsResource::new();
+    res.set_icon("assets/habit_logo.ico");
+    res.compile().expect("Failed to compile Windows resource for application icon");
+}
+
+#[cfg(not(target_os = "windows"))]
+fn embed_windows_icon() {
+    // No-op on non-Windows platforms
+}
